@@ -2,7 +2,7 @@
 using System.IO;
 using NUnit.Framework;
 
-namespace Geekality.MultiFileWatcher
+namespace Geekality.IO
 {
 	[TestFixture]
     public class FullPathComparerTest

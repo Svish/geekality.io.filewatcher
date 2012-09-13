@@ -7,7 +7,7 @@
     <ProjectGuid>{A4A24590-5D07-45F1-986B-7F7E1BFB9365}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Geekality.MultiFileWatcher.Console</RootNamespace>
+    <RootNamespace>Geekality.IO</RootNamespace>
     <AssemblyName>Geekality.MultiFileWatcher.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -36,7 +36,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Geekality.MultiFileWatcher.Console.Program</StartupObject>
+    <StartupObject>Geekality.IO.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

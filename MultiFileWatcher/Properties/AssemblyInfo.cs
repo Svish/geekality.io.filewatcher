@@ -5,4 +5,4 @@ using System.Reflection;
 [assembly: AssemblyDescription("A simple wrapper around FileSystemWatcher to watch multiple single files across directories")]
 [assembly: CLSCompliant(true)]
 
-[assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.1.*")]

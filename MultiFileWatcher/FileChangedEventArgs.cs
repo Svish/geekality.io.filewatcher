@@ -1,9 +1,9 @@
 ﻿using System.IO;
 
-namespace Geekality.MultiFileWatcher
+namespace Geekality.IO
 {
     /// <summary>
-    /// Data for the <see cref="FileWatcher.Changed"/> event.
+    /// Data for the <see cref="MultiFileWatcher.Changed"/> event.
     /// </summary>
     public class FileChangedEventArgs : FileEventArgs
     {

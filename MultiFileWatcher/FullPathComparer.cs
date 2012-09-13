@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace Geekality.MultiFileWatcher
+namespace Geekality.IO
 {
     /// <summary>
     /// Compares two <see cref="FileSystemInfo"/>s based on their <see cref="FileSystemInfo.FullPath"/> property.

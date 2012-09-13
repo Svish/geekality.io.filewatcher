@@ -2,7 +2,7 @@
 using System.IO;
 using NUnit.Framework;
 
-namespace Geekality.MultiFileWatcher
+namespace Geekality.IO
 {
     public sealed class SelfRemovingTmpFile : IDisposable
     {

@@ -7,7 +7,7 @@
     <ProjectGuid>{BCD4F3AE-06EC-4D61-A420-56BCE2900DC2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Geekality.MultiFileWatcher.Test</RootNamespace>
+    <RootNamespace>Geekality.IO</RootNamespace>
     <AssemblyName>Geekality.MultiFileWatcher.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

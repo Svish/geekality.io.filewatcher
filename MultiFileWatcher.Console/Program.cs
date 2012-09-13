@@ -1,8 +1,7 @@
 ﻿using System;
 using System.IO;
-using C = System.Console;
 
-namespace Geekality.MultiFileWatcher.Console
+namespace Geekality.IO
 {
     class Program
     {
@@ -10,10 +9,10 @@ namespace Geekality.MultiFileWatcher.Console
 
         static void Main(string[] args)
         {
-            C.CancelKeyPress += OnCancelKeyPress;
-            C.WriteLine("Enter the full path of a file to start watching it. Ctrl+C to quit.");
+            Console.CancelKeyPress += OnCancelKeyPress;
+            Console.WriteLine("Enter the full path of a file to start watching it. Ctrl+C to quit.");
 
-            using (var watcher = new FileWatcher())
+            using (var watcher = new MultiFileWatcher())
             {
                 watcher.Changed += watcher_Changed;
                 watcher.Deleted += watcher_Deleted;
@@ -23,16 +22,16 @@ namespace Geekality.MultiFileWatcher.Console
                 {
                     try
                     {
-                        var file = new FileInfo(C.ReadLine());
+                        var file = new FileInfo(Console.ReadLine());
 
                         if (file.Exists)
-                            C.WriteLine(watcher.Add(file) ? "Added" : "Already added");
+                            Console.WriteLine(watcher.Add(file) ? "Added" : "Already added");
                         else
-                            C.WriteLine("Not a file");
+                            Console.WriteLine("Not a file");
                     }
                     catch (Exception e)
                     {
-                        C.WriteLine(e.Message);
+                        Console.WriteLine(e.Message);
                     }
                 }
             }
@@ -40,23 +39,23 @@ namespace Geekality.MultiFileWatcher.Console
 
         static void watcher_Renamed(object sender, FileRenamedEventArgs e)
         {
-            C.WriteLine("File renamed: {1} -> {0}", e.File, e.OldFile);
+            Console.WriteLine("File renamed: {1} -> {0}", e.File, e.OldFile);
         }
 
         static void watcher_Deleted(object sender, FileDeletedEventArgs e)
         {
-            C.WriteLine("File deleted: {0}", e.File);
+            Console.WriteLine("File deleted: {0}", e.File);
         }
 
         static void watcher_Changed(object sender, FileChangedEventArgs e)
         {
-            C.WriteLine("File changed: {0}", e.File);
+            Console.WriteLine("File changed: {0}", e.File);
         }
 
         static void OnCancelKeyPress(object sender, System.ConsoleCancelEventArgs e)
         {
             running = false;
-            C.WriteLine("Quit");
+            Console.WriteLine("Quit");
         }
     }
 }
