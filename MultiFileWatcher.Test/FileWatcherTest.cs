@@ -2,18 +2,18 @@
 using System.Threading;
 using NUnit.Framework;
 
-namespace Geekality.MultiFileWatcher
+namespace Geekality.IO
 {
     [TestFixture]
     public class FileWatcherTest
     {
-        private FileWatcher subject;
+        private MultiFileWatcher subject;
         private SelfRemovingTmpFile tmpFile;
 
         [SetUp]
         public void setup()
         {
-            subject = new FileWatcher();
+            subject = new MultiFileWatcher();
             tmpFile = new SelfRemovingTmpFile();
         }
 

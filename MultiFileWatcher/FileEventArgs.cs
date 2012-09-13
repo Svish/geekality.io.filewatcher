@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 
-namespace Geekality.MultiFileWatcher
+namespace Geekality.IO
 {
     /// <summary>
-    /// Base event data for <see cref="FileWatcher"/> events.
+    /// Base event data for <see cref="MultiFileWatcher"/> events.
     /// </summary>
     public abstract class FileEventArgs : EventArgs
     {

@@ -4,14 +4,14 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 
-namespace Geekality.MultiFileWatcher
+namespace Geekality.IO
 {
     /// <summary>
-    /// Monitors a number of files and raises events whenever they change, are renamed or deleted.
+    /// Watches multiple files and raises events whenever they change, are renamed or deleted.
     /// 
     /// <remarks>Events are raised asynchronously using <see cref="SynchronizationContext.Post"/>.</remarks>
     /// </summary>
-    public sealed class FileWatcher : IDisposable
+    public sealed class MultiFileWatcher : IDisposable
     {
         /// <summary>
         /// Raised when one of the watched files has changed.
@@ -35,15 +35,15 @@ namespace Geekality.MultiFileWatcher
         private readonly Dictionary<DirectoryInfo, FileSystemWatcher> watchers;
 
         /// <summary>
-        /// Creates a new <see cref="FileWatcher"/>.
+        /// Creates a new <see cref="MultiFileWatcher"/>.
         /// </summary>
-        public FileWatcher() : this(null) { }
+        public MultiFileWatcher() : this(null) { }
 
         /// <summary>
-        /// Creates a new <see cref="FileWatcher"/> which will use the given <see cref="SynchronizationContext"/> to raising events.
+        /// Creates a new <see cref="MultiFileWatcher"/> which will use the given <see cref="SynchronizationContext"/> to raising events.
         /// </summary>
         /// <param name="context">The <see cref="SynchronizationContext"/> to use when raising events.</param>
-        public FileWatcher(SynchronizationContext context)
+        public MultiFileWatcher(SynchronizationContext context)
         {
             this.context = context ?? new SynchronizationContext();
             watchList = new Dictionary<FileInfo, long>(comparer);
