@@ -1,1 +1,1 @@
-nuget pack -sym MultiFileWatcher\MultiFileWatcher.csproj
+@nuget pack -sym MultiFileWatcher\MultiFileWatcher.csproj

@@ -6,7 +6,7 @@
     <title>$title$</title>
     <authors>Torleif Berger</authors>
     <owners>Torleif Berger</owners>
-    <licenseUrl>https://bitbucket.org/svish/multifilewatcher/src/tip/LICENSE.md</licenseUrl>
+    <licenseUrl>https://bitbucket.org/svish/multifilewatcher/src/tip/README.md</licenseUrl>
     <projectUrl>https://bitbucket.org/svish/multifilewatcher</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
