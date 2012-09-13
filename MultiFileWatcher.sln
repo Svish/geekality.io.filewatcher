@@ -16,8 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiFileWatcher.Console", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{43D2157D-A62A-405A-82B7-7F9A87DB01F3}"
 	ProjectSection(SolutionItems) = preProject
-		LICENSE.md = LICENSE.md
 		nuget-pack.bat = nuget-pack.bat
+		README.md = README.md
 	EndProjectSection
 EndProject
 Global
