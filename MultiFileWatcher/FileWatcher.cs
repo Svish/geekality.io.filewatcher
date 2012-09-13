@@ -9,7 +9,7 @@ namespace Geekality.MultiFileWatcher
     /// <summary>
     /// A wrapper around <see cref="FileSystemWatcher"/> for watching multiple files located in multiple directories.
     /// 
-    /// <remarks>Events are raised asynchronously using <see cref="SynchronizationContext.Post"/>.</remarks>
+    /// <remarks>Events are raised asynchronously using <see cref="SynchronizationContext.Post"/> and it uses one <see cref="FileSystemWatcher"/> per directory.</remarks>
     /// </summary>
     public sealed class FileWatcher : IDisposable
     {
