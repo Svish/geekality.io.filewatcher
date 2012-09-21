@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiFileWatcher", "MultiFileWatcher\MultiFileWatcher.csproj", "{2765A01D-F1D8-44E3-A12D-C4DEC016877C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileWatcher", "FileWatcher\FileWatcher.csproj", "{2765A01D-F1D8-44E3-A12D-C4DEC016877C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DF4F2C12-B20D-4331-9A76-896F3A9D8403}"
 	ProjectSection(SolutionItems) = preProject
@@ -10,13 +10,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DF4F2C
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiFileWatcher.Test", "MultiFileWatcher.Test\MultiFileWatcher.Test.csproj", "{BCD4F3AE-06EC-4D61-A420-56BCE2900DC2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileWatcher.Test", "FileWatcher.Test\FileWatcher.Test.csproj", "{BCD4F3AE-06EC-4D61-A420-56BCE2900DC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiFileWatcher.Console", "MultiFileWatcher.Console\MultiFileWatcher.Console.csproj", "{A4A24590-5D07-45F1-986B-7F7E1BFB9365}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileWatcher.Console", "FileWatcher.Console\FileWatcher.Console.csproj", "{A4A24590-5D07-45F1-986B-7F7E1BFB9365}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{43D2157D-A62A-405A-82B7-7F9A87DB01F3}"
 	ProjectSection(SolutionItems) = preProject
-		nuget-pack.bat = nuget-pack.bat
 		README.md = README.md
 	EndProjectSection
 EndProject

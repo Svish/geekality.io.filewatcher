@@ -7,14 +7,14 @@ namespace Geekality.IO
     [TestFixture]
     public class FileWatcherTest
     {
-        private MultiFileWatcher subject;
-        private SelfRemovingTmpFile tmpFile;
+        private FileWatcher subject;
+        private TemporaryFile tmpFile;
 
         [SetUp]
         public void setup()
         {
-            subject = new MultiFileWatcher();
-            tmpFile = new SelfRemovingTmpFile();
+            subject = new FileWatcher();
+            tmpFile = new TemporaryFile();
         }
 
         [TearDown]
@@ -41,31 +41,31 @@ namespace Geekality.IO
         [Test]
         public void Changed_FileChanges_EventIsRaisedForCorrectFile()
         {
-            subject.Add(new SelfRemovingTmpFile());
+            subject.Add(new TemporaryFile());
             subject.Add(tmpFile);
-            subject.Add(new SelfRemovingTmpFile());
+            subject.Add(new TemporaryFile());
 
             FileInfo eventResult = null;
             var eventRaised = new ManualResetEvent(false);
             subject.Changed += (s, e) => { eventResult = e.File; eventRaised.Set(); };
 
-            File.AppendAllText(tmpFile.FullName, "test");
+            File.AppendAllText(tmpFile, "test");
 
             Assert.True(eventRaised.WaitOne(1500), "Event was not raised.");
-            Assert.AreEqual(tmpFile.FullName, eventResult.FullName);
+            Assert.AreEqual(tmpFile.FileInfo.FullName, eventResult.FullName);
         }
 
         [Test]
         public void Changed_UnwatchedFileChanges_EventIsNotRaised()
         {
-            using (var otherTmpFile = new SelfRemovingTmpFile())
+            using (var otherTmpFile = new TemporaryFile())
             {
                 subject.Add(tmpFile);
 
                 var eventRaised = new ManualResetEvent(false);
                 subject.Changed += (s, e) => { eventRaised.Set(); };
 
-                File.AppendAllText(otherTmpFile.FullName, "test");
+                File.AppendAllText(otherTmpFile, "test");
 
                 Assert.False(eventRaised.WaitOne(1500), "Event was raised.");
             }
@@ -75,7 +75,7 @@ namespace Geekality.IO
         [Test]
         public void Remove_OneOfMultipleFilesInSameDirectory_OtherFilesAreStillWatched()
         {
-            using (var otherTmpFile = new SelfRemovingTmpFile())
+            using (var otherTmpFile = new TemporaryFile())
             {
                 subject.Add(tmpFile);
                 subject.Add(otherTmpFile);
@@ -85,7 +85,7 @@ namespace Geekality.IO
                 var eventRaised = new ManualResetEvent(false);
                 subject.Changed += (s, e) => { eventRaised.Set(); };
 
-                File.AppendAllText(tmpFile.FullName, "test");
+                File.AppendAllText(tmpFile, "test");
 
                 Assert.True(eventRaised.WaitOne(1500), "Event was not raised for file which should still be watched.");
             }
@@ -103,7 +103,7 @@ namespace Geekality.IO
             subject.Renamed += (s, e) => { oldFile = e.OldFile; newFile = e.File; eventRaised.Set(); };
 
             string newFileName = Path.GetTempPath() + Path.GetRandomFileName();
-            File.Move(tmpFile.FullName, newFileName);
+            File.Move(tmpFile, newFileName);
 
             Assert.True(eventRaised.WaitOne(1500), "Event was not raised.");
             Assert.True(newFile.Exists);
@@ -124,7 +124,7 @@ namespace Geekality.IO
             tmpFile.Dispose();
 
             Assert.True(eventRaised.WaitOne(1500), "Event was not raised.");
-            Assert.AreEqual(tmpFile.FullName, eventResult.FullName);
+            Assert.AreEqual(tmpFile.FileInfo.FullName, eventResult.FullName);
         }
     }
 }
