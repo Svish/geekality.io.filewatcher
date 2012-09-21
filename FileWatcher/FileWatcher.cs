@@ -11,7 +11,7 @@ namespace Geekality.IO
     /// 
     /// <remarks>Events are raised asynchronously using <see cref="SynchronizationContext.Post"/>.</remarks>
     /// </summary>
-    public sealed class MultiFileWatcher : IDisposable
+    public sealed class FileWatcher : IDisposable
     {
         /// <summary>
         /// Raised when one of the watched files has changed.
@@ -35,15 +35,15 @@ namespace Geekality.IO
         private readonly Dictionary<DirectoryInfo, FileSystemWatcher> watchers;
 
         /// <summary>
-        /// Creates a new <see cref="MultiFileWatcher"/>.
+        /// Creates a new <see cref="FileWatcher"/>.
         /// </summary>
-        public MultiFileWatcher() : this(null) { }
+        public FileWatcher() : this(null) { }
 
         /// <summary>
-        /// Creates a new <see cref="MultiFileWatcher"/> which will use the given <see cref="SynchronizationContext"/> to raising events.
+        /// Creates a new <see cref="FileWatcher"/> which will use the given <see cref="SynchronizationContext"/> to raising events.
         /// </summary>
         /// <param name="context">The <see cref="SynchronizationContext"/> to use when raising events.</param>
-        public MultiFileWatcher(SynchronizationContext context)
+        public FileWatcher(SynchronizationContext context)
         {
             this.context = context ?? new SynchronizationContext();
             watchList = new Dictionary<FileInfo, long>(comparer);

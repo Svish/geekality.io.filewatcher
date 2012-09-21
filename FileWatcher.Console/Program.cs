@@ -3,6 +3,9 @@ using System.IO;
 
 namespace Geekality.IO
 {
+    /// <summary>
+    /// Just some manual testing of the <see cref="FileWatcher"/> class.
+    /// </summary>
     class Program
     {
         static volatile bool running = true;
@@ -12,7 +15,7 @@ namespace Geekality.IO
             Console.CancelKeyPress += OnCancelKeyPress;
             Console.WriteLine("Enter the full path of a file to start watching it. Ctrl+C to quit.");
 
-            using (var watcher = new MultiFileWatcher())
+            using (var watcher = new FileWatcher())
             {
                 watcher.Changed += watcher_Changed;
                 watcher.Deleted += watcher_Deleted;

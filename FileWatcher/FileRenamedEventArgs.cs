@@ -3,7 +3,7 @@
 namespace Geekality.IO
 {
     /// <summary>
-    /// Data for the <see cref="MultiFileWatcher.Renamed"/> event.
+    /// Data for the <see cref="FileWatcher.Renamed"/> event.
     /// </summary>
     public class FileRenamedEventArgs : FileEventArgs
     {

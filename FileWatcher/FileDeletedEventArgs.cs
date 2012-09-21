@@ -3,7 +3,7 @@
 namespace Geekality.IO
 {
     /// <summary>
-    /// Data for the <see cref="MultiFileWatcher.Deleted"/> event.
+    /// Data for the <see cref="FileWatcher.Deleted"/> event.
     /// </summary>
     public class FileDeletedEventArgs : FileEventArgs
     {

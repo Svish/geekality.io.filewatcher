@@ -4,7 +4,7 @@ using System.IO;
 namespace Geekality.IO
 {
     /// <summary>
-    /// Base event data for <see cref="MultiFileWatcher"/> events.
+    /// Base event data for <see cref="FileWatcher"/> events.
     /// </summary>
     public abstract class FileEventArgs : EventArgs
     {
